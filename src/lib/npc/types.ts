@@ -7,7 +7,10 @@ export type AdminResult =
   | "ADMIN_RESULT_OK"
   | "ADMIN_RESULT_FORBIDDEN"
   | "ADMIN_RESULT_INVALID"
-  | "ADMIN_RESULT_NOT_FOUND";
+  | "ADMIN_RESULT_NOT_FOUND"
+  // Versioned world content can only be hidden, never deleted (web-api's
+  // store.ErrContentOwned).
+  | "ADMIN_RESULT_CONTENT_OWNED";
 
 export type AdminNpcShopItem = {
   slot: number;
@@ -33,6 +36,10 @@ export type AdminNpc = {
   route_type: number;
   merchant: number;
   shop: AdminNpcShopItem[];
+  // Where the definition came from ("content" for the versioned Release tree,
+  // moderator overlays otherwise) and, for content NPCs, its NPCGener index.
+  origin?: string;
+  generator_index?: number;
 };
 
 // Lookup entries that back the form pickers. Empty lists are valid (web-api

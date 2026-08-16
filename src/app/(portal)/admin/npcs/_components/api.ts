@@ -63,6 +63,9 @@ export function errorMessage(err: unknown): string {
   if (e.status === 403 || e.result === "ADMIN_RESULT_FORBIDDEN") return "Você não tem permissão de moderador.";
   if (e.status === 404 || e.result === "ADMIN_RESULT_NOT_FOUND") return "NPC não encontrado.";
   if (e.status === 422 || e.result === "ADMIN_RESULT_INVALID") return "Dados inválidos. Revise os campos.";
+  if (e.status === 409 || e.result === "ADMIN_RESULT_CONTENT_OWNED") {
+    return "Este NPC vem do conteúdo do servidor e não pode ser excluído — desative-o para escondê-lo.";
+  }
   if (e.status === 502) return "web-api indisponível. Tente novamente em instantes.";
   return "Não foi possível concluir a operação.";
 }

@@ -18,7 +18,8 @@ export type CreditDonateBalanceRequest = {
   amount: number;
   reason: string;
 };
-export type CreditDonateBalanceResponse = { result: AdminResult; new_balance: string };
+// int32 on the wire — arrives as a JS number, unlike the int64 topup balances.
+export type CreditDonateBalanceResponse = { result: AdminResult; new_balance: number };
 export type AdminAck = { result: AdminResult };
 
 type Cb<R> = (err: grpc.ServiceError | null, res: R) => void;
