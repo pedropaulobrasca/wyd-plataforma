@@ -9,6 +9,9 @@ const STATUS: Record<AdminResult, number> = {
   ADMIN_RESULT_FORBIDDEN: 403,
   ADMIN_RESULT_INVALID: 422,
   ADMIN_RESULT_NOT_FOUND: 404,
+  // Conflict: the definition is owned by the versioned content tree, so the
+  // moderator has to hide it instead of deleting it.
+  ADMIN_RESULT_CONTENT_OWNED: 409,
   ADMIN_RESULT_UNSPECIFIED: 500,
 };
 

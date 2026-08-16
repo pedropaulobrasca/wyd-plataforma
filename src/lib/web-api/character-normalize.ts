@@ -11,10 +11,10 @@ export type CharacterSummaryRaw = {
   max_hp: number;
   mp: number;
   max_mp: number;
-  strength: number;
-  intelligence: number;
-  dexterity: number;
-  constitution: number;
+  str: number;
+  int: number;
+  dex: number;
+  con: number;
 };
 
 export type CharacterSummaryView = {
@@ -50,9 +50,9 @@ export function normalizeCharacterSummary(raw: CharacterSummaryRaw): CharacterSu
     maxHp: raw.max_hp,
     mp: raw.mp,
     maxMp: raw.max_mp,
-    strength: raw.strength,
-    intelligence: raw.intelligence,
-    dexterity: raw.dexterity,
-    constitution: raw.constitution,
+    strength: raw.str,
+    intelligence: raw.int,
+    dexterity: raw.dex,
+    constitution: raw.con,
   };
 }
